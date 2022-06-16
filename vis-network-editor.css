@@ -1,6 +1,6 @@
 div#mynetwork {
-    width: 1200px;
-    height: 1200px;
+    width: 100%;
+    height: 100vh;
     border: solid;
     border-radius: 10px;
     border-width: thin;
