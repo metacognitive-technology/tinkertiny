@@ -474,7 +474,7 @@ function getScaleFreeNetwork(nodeCount) {
               })
               break;
             case 9:
-              var button = $("<img  title='Change node shape' style='margin-top: -5px;' src='./images/lozenge-icon.png' />" )
+              var button = $("<img  title='Change node shape' style='margin-top: -5px;' src='./dev/images/lozenge-icon.png' />" )
               tool.append(button);
               tool.on("click", function () {changeNodeShape('ellipse')})
               tool.jqxButton({ width: minWidth });
