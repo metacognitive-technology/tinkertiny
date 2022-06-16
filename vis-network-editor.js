@@ -439,8 +439,8 @@ function getScaleFreeNetwork(nodeCount) {
                       var value = item.value;
                       if(value == '  Enter new edge label'){
                         newLabel = prompt('Enter a new edge label:')
-                        sourceList.push(newLabel)
-                        sourceList = _.sortBy(_.uniq(sourceList))
+                        sourceList2.push(newLabel)
+                        sourceList2 = _.sortBy(_.uniq(sourceList2))
                         tool.jqxComboBox({ source: sourceList2, selectedIndex: _.indexOf(sourceList2,newLabel) })
                         edgeLabelSelected(newLabel)
                       }else{
