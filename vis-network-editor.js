@@ -233,19 +233,19 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxToggleButton({ width: minWidth,  toggled: true });
               break;
             case 1:
-              var button = $("<span title='Start simulation'><i  class=' buttonIcon fa-solid fa-play fa-xl' />&nbsp;A</span>" )
+              var button = $("<span title='Start simulation'><i  class=' buttonIcon fa-solid fa-play fa-xl' /></span>" )
               tool.append(button);
               tool.on("click", function () {startSimulation()})
               tool.jqxButton({ width: minWidth + 5 });
               break;
             case 2:
-              var button = $("<span title='Stop simulation'><i  class=' buttonIcon fa-solid fa-stop fa-xl' />&nbsp;A</span>" )
+              var button = $("<span title='Stop simulation'><i  class=' buttonIcon fa-solid fa-stop fa-xl' /></span>" )
               tool.append(button);
               tool.on("click", function () {stopSimulation()})
               tool.jqxButton({ width: minWidth + 5 });
               break;
             case 3:
-              var button = $("<span title='Stabilize simulation'><i  class=' buttonIcon fa-solid fa-weight-hanging fa-xl' />&nbsp;A</span>" )
+              var button = $("<span title='Stabilize simulation'><i  class=' buttonIcon fa-solid fa-weight-hanging fa-xl' /></span>" )
               tool.append(button);
               tool.on("click", function () {stabilizeSimulation()})
               tool.jqxButton({ width: minWidth + 5 });
