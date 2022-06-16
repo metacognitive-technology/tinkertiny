@@ -1,0 +1,79 @@
+div#mynetwork {
+    width: 1200px;
+    height: 1200px;
+    border: solid;
+    border-radius: 10px;
+    border-width: thin;
+    border-color: black;
+    background-color: rgb(255, 255, 255);
+    }
+
+.ace_text-input {
+    position: relative;}
+
+.buttonIcon
+{
+    margin: -5px 0 0 -3px;
+    width: 16px;
+    height: 17px;
+}
+
+.jqx-toolbar-tool-separator-ltr {
+    margin-right: 15px !important;
+}
+
+#swatch{
+    background: white;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, .1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #swatch .info{
+    padding: 1em;
+  }
+  
+  #swatch h1{
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  #swatch h2{
+    font-weight: normal;
+    margin: 0;
+  }
+  
+  input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 2em;
+    padding: 0;
+    width: 2em;
+  }
+  
+  *:focus{
+    border-radius: 0;
+    outline: none;
+  }
+  
+  ::-webkit-color-swatch-wrapper {
+    padding: 0;
+  }
+  
+  ::-webkit-color-swatch{
+    border: 0;
+    border-radius: 0;
+  }
+  
+  ::-moz-color-swatch,
+  ::-moz-focus-inner{
+    border: 0;
+  }
+  
+  ::-moz-focus-inner{
+    padding: 0;
+  }

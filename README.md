@@ -1,2 +1,2 @@
-# tinkertiny
-another test for GitHub hosting
+# metacognitive.github.io
+Front page for my GitHub-hosted pages

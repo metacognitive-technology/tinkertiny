@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/vis-data@latest/peer/umd/vis-data.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network@latest/peer/umd/vis-network.min.js"></script>
+    <script type="text/javascript" src="./dev/js/filesaver.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+    <link rel="stylesheet" href="./dev/js/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxlistbox.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxdropdownlist.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxcombobox.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxinput.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxtoolbar.js"></script>
+    <script type="text/javascript" src="./dev/js/jqwidgets/jqxcolorpicker.js"></script>
+ 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/underscore@1.13.4/underscore-umd-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.5.2/bootbox.min.js"></script>
+    <link href="./dev/fontawesome/css/all.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/vis-network/styles/vis-network.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="vis-network-editor.css"/>
+
+    <script lang="javascript" src="vis-network-editor.js"></script>
+    <script>
+      $(document).ready(() =>{
+        initWidgets()
+        initVis()
+      }) 
+    </script>
+  </head>
+  <body>
+    <div id="network-popUp" hidden>
+        <span id="operation">node</span> <br />
+        <table style="margin: auto">
+          <tbody>
+            <tr>
+              <td>id</td>
+              <td><input id="node-id" value="new value" /></td>
+            </tr>
+            <tr>
+              <td>label</td>
+              <td><input id="node-label" value="new value" /></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="button" value="save" id="saveButton" />
+        <input type="button" value="cancel" id="cancelButton" />
+      </div>
+      <div id="toolbarMain"></div>
+      <div id="toolbarArrangeAndHideShow"></div>
+      <div id="toolbarAddAndStyle"></div>
+      <div id="mynetwork"></div> 
+    <div id="vis-config" hidden></div>
+    <input id="file-input" type="file" name="name" style="display: none;" />
+      
+   
+   </body>
+</html>
