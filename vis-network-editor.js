@@ -974,6 +974,7 @@ deleteSelections = () => {
   })
   eds.remove(_.uniq(edgesToRemove))
   nds.remove(selections.nodes)
+  network.unselectAll()
 }
 
 changeNodeColor = (color) => {
