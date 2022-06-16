@@ -60,7 +60,12 @@ initVis = () => {
         color: {
           highlight: '#ff0000',
           hover: '#0066cc'
-        }
+        },
+        selfReference:{
+          size: 15,
+          angle: Math.PI / 8,
+          renderBehindTheNode: false
+      },  
       }
     }
 
