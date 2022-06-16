@@ -961,7 +961,7 @@ cloneSelections = () => {
   pasteSelections()
 }
 
-deleteSelections = () => {
+deleteSelections = () => { 
   var eds = network.edgesHandler.body.data.edges.getDataSet()
   var nds = network.nodesHandler.body.data.nodes.getDataSet()
   var selections = network.getSelection()
