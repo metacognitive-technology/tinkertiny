@@ -427,7 +427,7 @@ function getScaleFreeNetwork(nodeCount) {
               break;
             case 3:
               var sourceList2 = ['  Enter new edge label','is-a','has-a','composes']
-              tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 1 })
+              tool.jqxComboBox({ width: 200, source: sourceList2, selectedIndex: 1 })
               window.latestEdgeLabel = 'is-a'
               tool.on('change', function (event) 
                 {
