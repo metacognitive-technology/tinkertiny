@@ -396,7 +396,7 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth });
               break;
             case 1:
-              sourceList = ['  Enter new node label','Cept','Attribute','Actor','Place']
+              var sourceList = ['  Enter new node label','Cept','Attribute','Property','Place']
               tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 1 })
               window.latestNodeLabel = 'Cept'
               tool.on('change', function (event) 
@@ -426,7 +426,7 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth });
               break;
             case 3:
-              sourceList = ['  Enter new edge label','is-a','has-a','composes']
+              var sourceList2 = ['  Enter new edge label','is-a','has-a','composes']
               tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 1 })
               window.latestEdgeLabel = 'is-a'
               tool.on('change', function (event) 
@@ -441,7 +441,7 @@ function getScaleFreeNetwork(nodeCount) {
                         newLabel = prompt('Enter a new edge label:')
                         sourceList.push(newLabel)
                         sourceList = _.sortBy(_.uniq(sourceList))
-                        tool.jqxComboBox({ source: sourceList, selectedIndex: _.indexOf(sourceList,newLabel) })
+                        tool.jqxComboBox({ source: sourceList2, selectedIndex: _.indexOf(sourceList2,newLabel) })
                         edgeLabelSelected(newLabel)
                       }else{
                         edgeLabelSelected(value)
