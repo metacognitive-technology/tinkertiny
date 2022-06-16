@@ -396,9 +396,9 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth });
               break;
             case 1:
-              sourceList = ['  Enter new node label','cept','name','attribute','pizza']
+              sourceList = ['  Enter new node label','Cept','Attribute','Actor','Place']
               tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 1 })
-              window.latestNodeLabel = 'cept'
+              window.latestNodeLabel = 'Cept'
               tool.on('change', function (event) 
                 {
                     var args = event.args;
