@@ -794,6 +794,7 @@ hideEdgeLabels = (flag) => {
 networkToPreJSON = () => {
   var eds = network.edgesHandler.body.data.edges.getDataSet()
   var nds = network.nodesHandler.body.data.nodes.getDataSet()
+  network.storePositions()
   return {nodes: nds.get(), edges: eds.get()}
 }
 
@@ -999,7 +1000,7 @@ changeEdgeColor = (color) => {
 }
 
 changeEdgeWidth = (width) => {
-  changeOptionsForSelectedEdges({width: width, hoverWidth:  function (width) {return width*2},selectionWidth: function (width) {return width*2}})
+  changeOptionsForSelectedEdges({width: width, hoverWidth:  function (width) {return width*1.5},selectionWidth: function (width) {return width*2}})
 }
 
 changeNodeShape = (shape) => {
