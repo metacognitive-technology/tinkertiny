@@ -401,26 +401,39 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth });
               break;
             case 1:
-              var sourceList = ['  Enter new node label','Cept','Attribute','Property','Place']
-              tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 1 })
+              var sourceList = ['  Enter new node label','  Add used labels','Cept','Attribute','Property','Place']
+              tool.jqxComboBox({ width: 200, source: sourceList, selectedIndex: 2 })
               window.latestNodeLabel = 'Cept'
+              window.nodeLabelTool = tool
               tool.on('change', function (event) 
                 {
-                    var args = event.args;
-                    if (args) {
-                      var index = args.index;
-                      var item = args.item;
-                      var label = item.label;
-                      var value = item.value;
-                      if(value == '  Enter new node label'){
-                        newLabel = prompt('Enter a new node label:')
-                        sourceList.push(newLabel)
+                  var nds = network.nodesHandler.body.data.nodes.getDataSet()
+                  var args = event.args;
+                  if (args) {
+                    var index = args.index;
+                    var item = args.item;
+                    var label = item.label;
+                    var value = item.value;
+                    if(value == '  Add used labels'){
+                      var nodeLabels = _.uniq(_.map(nds.get(), (node) => {return node.label}))
+                      var labels = _.sortBy(_.uniq(_.union(nodeLabels,sourceList)))
+                      tool.jqxComboBox({ source: labels, selectedIndex:2})
+                    }else{  
+                    if(value == '  Enter new node label'){
+                      newLabel = prompt('Enter a new node label(s,):')
+                      if (!(newLabel == '' || newLabel == null)){
+                        newLabel.split(',').forEach( (nl) => {
+                          sourceList.push(nl)
+                          newLabel = nl
+                        })
                         sourceList = _.sortBy(_.uniq(sourceList))
                         tool.jqxComboBox({ source: sourceList, selectedIndex: _.indexOf(sourceList,newLabel) })
                         nodeLabelSelected(newLabel)
-                      }else{
-                        nodeLabelSelected(value)
                       }
+                      }else{
+                      nodeLabelSelected(value)
+                    }
+                    }
                   }
                 }); 
               break
@@ -431,26 +444,38 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth });
               break;
             case 3:
-              var sourceList2 = ['  Enter new edge label','is-a','has-a','composes']
-              tool.jqxComboBox({ width: 200, source: sourceList2, selectedIndex: 1 })
+              var sourceList2 = ['  Enter new edge label','  Add used labels','is-a','has-a','composes']
+              tool.jqxComboBox({ width: 200, source: sourceList2, selectedIndex: 2 })
               window.latestEdgeLabel = 'is-a'
               tool.on('change', function (event) 
                 {
-                    var args = event.args;
-                    if (args) {
-                      var index = args.index;
-                      var item = args.item;
-                      var label = item.label;
-                      var value = item.value;
-                      if(value == '  Enter new edge label'){
-                        newLabel = prompt('Enter a new edge label:')
-                        sourceList2.push(newLabel)
+                  var eds = network.edgesHandler.body.data.edges.getDataSet()
+                  var args = event.args;
+                  if (args) {
+                    var index = args.index;
+                    var item = args.item;
+                    var label = item.label;
+                    var value = item.value;
+                    if(value == '  Add used labels'){
+                      var edgeLabels = _.uniq(_.map(eds.get(), (edge) => {return edge.label}))
+                      var labels = _.sortBy(_.uniq(_.union(edgeLabels,sourceList2)))
+                      tool.jqxComboBox({ source: labels, selectedIndex:2})
+                    }else{
+                    if(value == '  Enter new edge label'){
+                      newLabel = prompt('Enter a new edge label(s,):')
+                      if (!(newLabel == '' || newLabel == null)){
+                        newLabel.split(',').forEach( (nl) => {
+                          sourceList2.push(nl)
+                          newLabel = nl
+                        })
                         sourceList2 = _.sortBy(_.uniq(sourceList2))
                         tool.jqxComboBox({ source: sourceList2, selectedIndex: _.indexOf(sourceList2,newLabel) })
                         edgeLabelSelected(newLabel)
-                      }else{
-                        edgeLabelSelected(value)
                       }
+                    }else{
+                      edgeLabelSelected(value)
+                    }
+                  }
                   }
                 }); 
               break
@@ -812,7 +837,9 @@ saveNetworkJSONToFile = () => {
   var contents = JSON.stringify(networkToPreJSON())
   var blob = new Blob([contents], { type: "application/json;charset=utf-8" })
   fileName = prompt('Enter the file name to save:  (*.json)')
+  if (!(fileName == '' || fileName == null)){ 
    saveAs(blob,fileName);
+  }
 }
 
 loadNetworkFromJSONFile = () => {
