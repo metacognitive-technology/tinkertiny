@@ -12,6 +12,7 @@ initVis = () => {
           enabled: false,
           addNode: (nodeData,callback) => {
             nodeData.label = window.latestNodeLabel
+            nodeData.physics = false
             callback(nodeData)
             network.body.container.style.cursor = 'auto';
           },
@@ -418,6 +419,7 @@ function getScaleFreeNetwork(nodeCount) {
                       var nodeLabels = _.uniq(_.map(nds.get(), (node) => {return node.label}))
                       var labels = _.sortBy(_.uniq(_.union(nodeLabels,sourceList)))
                       tool.jqxComboBox({ source: labels, selectedIndex:2})
+                      sourceList = labels
                     }else{  
                     if(value == '  Enter new node label'){
                       newLabel = prompt('Enter a new node label(s,):')
@@ -460,6 +462,7 @@ function getScaleFreeNetwork(nodeCount) {
                       var edgeLabels = _.uniq(_.map(eds.get(), (edge) => {return edge.label}))
                       var labels = _.sortBy(_.uniq(_.union(edgeLabels,sourceList2)))
                       tool.jqxComboBox({ source: labels, selectedIndex:2})
+                      sourceList2 = labels
                     }else{
                     if(value == '  Enter new edge label'){
                       newLabel = prompt('Enter a new edge label(s,):')
