@@ -397,7 +397,7 @@ function getScaleFreeNetwork(nodeCount) {
               break;
             case 1:
               var sourceList = ['  Enter new node label','  Add used labels','Cept','Attribute','Property','Place']
-              tool.jqxComboBox({ width: 200, autoDropDownHeight: false, dropDownHeight: 400, source: sourceList, selectedIndex: 2 })
+              tool.jqxComboBox({ width: 200, autoDropDownHeight: false, dropDownHeight: 600, source: sourceList, selectedIndex: 2 })
               window.latestNodeLabel = 'Cept'
               window.nodeLabelTool = tool
               tool.on('change', function (event) 
@@ -441,7 +441,7 @@ function getScaleFreeNetwork(nodeCount) {
               break;
             case 3:
               var sourceList2 = ['  Enter new edge label','  Add used labels','is-a','has-a','composes']
-              tool.jqxComboBox({ width: 200, dropDownHeight: 400, source: sourceList2, selectedIndex: 2 })
+              tool.jqxComboBox({ width: 200, autoDropDownHeight: false, dropDownHeight: 600, source: sourceList2, selectedIndex: 2 })
               window.latestEdgeLabel = 'is-a'
               tool.on('change', function (event) 
                 {
