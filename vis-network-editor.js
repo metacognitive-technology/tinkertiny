@@ -830,12 +830,15 @@ loadNetworkFromJSON = (json) => {
   network.redraw()
 }
 
-saveNetworkJSONToFile = () => {
+saveNetworkJSONToFile = (fn) => {
   var contents = JSON.stringify(networkToPreJSON())
   var blob = new Blob([contents], { type: "application/json;charset=utf-8" })
+  if(!fn){
   fileName = prompt('Enter the file name to save:  (*.json)')
   if (!(fileName == '' || fileName == null)){ 
-   saveAs(blob,fileName);
+   saveAs(blob,fileName)
+  }}else{
+    saveAs(blob,fn)
   }
 }
 
@@ -1059,4 +1062,9 @@ addNode = () => {
 
 addEdge = () => {
   network.addEdgeMode()
+}
+
+aboutToLeavePage = (event) => {
+  //saveNetworkJSONToFile('autosaved.json')
+  return event.returnValue = "Are you sure you want to exit?";
 }
