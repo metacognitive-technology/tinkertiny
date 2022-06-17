@@ -62,8 +62,8 @@ initVis = () => {
           hover: '#0066cc'
         },
         selfReference:{
-          size: 15,
-          angle: Math.PI / 8,
+          size: 25,
+          angle: Math.PI / 6,
           renderBehindTheNode: false
       },  
       }
