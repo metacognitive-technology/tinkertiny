@@ -245,7 +245,7 @@ function getScaleFreeNetwork(nodeCount) {
               tool.jqxButton({ width: minWidth + 5 });
               break;
             case 3:
-              var button = $("<span title='Stabilize simulation'><i  class=' buttonIcon fa-solid fa-weight-hanging fa-xl' /></span>" )
+              var button = $("<span title='Stabilize simulation'><i  class=' buttonIcon fa-solid fa-flag-checkered fa-xl' /></span>" )
               tool.append(button);
               tool.on("click", function () {stabilizeSimulation()})
               tool.jqxButton({ width: minWidth + 5 });
@@ -950,7 +950,7 @@ pasteSelections = () => {
       var newId = nextNodeIdForMe
       nextNodeIdForMe ++
       newNodeIdMap[node.id] = newId
-      clone = _.clone(node)
+      var clone = _.clone(node)
       clone.id = newId
       nodesToAdd.push(clone)
     }else{
@@ -960,9 +960,9 @@ pasteSelections = () => {
   copyBuffer.edges.forEach( (edge) => {
     if (eds.get(edge.id)){// edge with this id exists in the graph, so clone it and add it after mapping its nodes, otherwise restore it
       var newId = nextEdgeId()
-      clone = _.clone(edge)
+      var clone = _.clone(edge)
       clone.id = newId
-      theEdge = clone
+      var theEdge = clone
     }else{
       theEdge = edge
     }
